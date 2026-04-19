@@ -838,6 +838,38 @@
     font-size:14px;color:var(--text-secondary);line-height:1.8;
   }
 
+  .reason{
+    margin-bottom:var(--space-xl);
+    text-align:center;
+  }
+  .reason:last-child{margin-bottom:0}
+  .reason-num{
+    font-family:var(--font-accent);font-style:italic;
+    font-size:15px;letter-spacing:0.2em;
+    color:var(--brand-accent);
+    margin-bottom:var(--space-sm);
+  }
+  .reason-heading{
+    font-size:20px;line-height:1.5;
+    font-weight:500;letter-spacing:0.04em;
+    margin-bottom:var(--space-md);
+  }
+  @media (min-width:768px){.reason-heading{font-size:26px}}
+  .reason-media{
+    border-radius:16px;overflow:hidden;
+    margin-bottom:var(--space-md);
+    aspect-ratio:16/9;
+    background:var(--surface-soft);
+  }
+  .reason-media img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .reason-body{
+    font-size:15px;line-height:2;
+    max-width:560px;margin-inline:auto;
+  }
+  @media (min-width:768px){.reason-body{font-size:16px}}
+
   .campaign{text-align:center}
   .campaign-title{
     font-family:var(--font-accent);
@@ -1097,26 +1129,39 @@
 <!-- 5. PLFなら始められる3つの理由 -->
 <section class="section-warm">
   <div class="container">
-    <div class="reveal" style="text-align:center">
+    <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl)">
       <span class="eyebrow">why PLF</span>
       <h2 class="section-title">始めるきっかけがなかったあなたでも、<br/>PLFなら始められます。</h2>
     </div>
-    <div class="solution-grid">
-      <div class="sol-card reveal">
-        <span class="num">01</span>
-        <h3>セミパーソナルだから<br/>コスパがいい</h3>
-        <p>マンツーマンじゃないから安い。でもトレーナーがちゃんと見てくれる。お試し1回2,980円から。</p>
+
+    <!-- 理由1 -->
+    <div class="reason reveal">
+      <div class="reason-num">01</div>
+      <h3 class="reason-heading">セミパーソナルだから、コスパがいい。</h3>
+      <div class="reason-media">
+        <img src="https://motoyawata.plf-personal.com/img/toppageimg_04.jpg" alt="セミパーソナルの様子" loading="lazy" />
       </div>
-      <div class="sol-card reveal" style="transition-delay:100ms">
-        <span class="num">02</span>
-        <h3>ストレッチも一緒だから<br/>キツすぎない</h3>
-        <p>トレーニング＋ストレッチ＋コンディショニング。鍛えるだけじゃない、整えるトレーニングです。</p>
+      <p class="reason-body">マンツーマンじゃないから安い。<br/>でもトレーナーがちゃんと見てくれる。<br/>お試し<strong style="color:var(--price-highlight)">1回2,980円</strong>から始められます。</p>
+    </div>
+
+    <!-- 理由2 -->
+    <div class="reason reveal">
+      <div class="reason-num">02</div>
+      <h3 class="reason-heading">ストレッチも一緒だから、キツすぎない。</h3>
+      <div class="reason-media">
+        <img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="ストレッチ・コンディショニング" loading="lazy" />
       </div>
-      <div class="sol-card reveal" style="transition-delay:200ms">
-        <span class="num">03</span>
-        <h3>手ぶらで通える</h3>
-        <p>ウェア・シューズのレンタル無料。仕事帰りにふらっと立ち寄れます。</p>
+      <p class="reason-body">トレーニング＋ストレッチ＋コンディショニング。<br/>鍛えるだけじゃない。整える、ほぐす、習慣にする。<br/>それがPLFのボディメンテナンスです。</p>
+    </div>
+
+    <!-- 理由3 -->
+    <div class="reason reveal">
+      <div class="reason-num">03</div>
+      <h3 class="reason-heading">手ぶらで通える。</h3>
+      <div class="reason-media">
+        <img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="手ぶらでOK" loading="lazy" />
       </div>
+      <p class="reason-body">ウェア・シューズのレンタル無料。<br/>仕事帰りにふらっと立ち寄れます。</p>
     </div>
   </div>
 </section>

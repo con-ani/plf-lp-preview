@@ -6,20 +6,22 @@
 <title>PLF本八幡 | 週1の習慣で、変わります。</title>
 <meta name="description" content="PLF本八幡 — トレーニング＋ストレッチ＋コンディショニング全部入りで1回2,980円。京成八幡駅 徒歩1分／本八幡駅 徒歩5分。Google評価4.9。" />
 
+<!-- META PIXEL -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --brand-primary:#333333;
+    --brand-primary:#555555;
     --brand-accent:#C0836E;
     --brand-accent-hover:#B0735E;
     --surface-main:#FFFFFF;
     --surface-warm:#FAFAF7;
     --surface-soft:#F5F0EB;
     --surface-dark:#3A3A3A;
-    --text-primary:#333333;
+    --text-primary:#555555;
     --text-secondary:#8C8C8C;
     --text-inverse:#FFFFFF;
     --text-accent:#C0836E;
@@ -35,8 +37,8 @@
     --space-sm:16px;
     --space-md:24px;
     --space-lg:40px;
-    --space-xl:64px;
-    --space-2xl:96px;
+    --space-xl:80px;
+    --space-2xl:120px;
   }
 
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,24 +84,27 @@
 
   .eyebrow{
     font-family:var(--font-accent);
-    font-size:13px;
+    font-size:14px;
     font-style:italic;
-    letter-spacing:0.12em;
+    letter-spacing:0.18em;
     color:var(--brand-accent);
     text-transform:lowercase;
-    margin-bottom:var(--space-sm);
+    margin-bottom:var(--space-md);
     display:inline-block;
   }
-  .eyebrow::before{
+  .eyebrow::before,.eyebrow::after{
     content:"";display:inline-block;width:28px;height:1px;background:var(--brand-accent);
-    vertical-align:middle;margin-right:10px;
+    vertical-align:middle;
   }
+  .eyebrow::before{margin-right:12px}
+  .eyebrow::after{margin-left:12px}
 
   .section-title{
-    font-size:20px;line-height:1.4;
+    font-size:22px;line-height:1.55;
     margin-bottom:var(--space-md);
+    font-weight:500;
   }
-  @media (min-width:768px){ .section-title{font-size:26px} }
+  @media (min-width:768px){ .section-title{font-size:30px} }
   .section-subtitle{
     color:var(--text-secondary);font-size:13px;
     margin-bottom:var(--space-lg);
@@ -263,15 +268,18 @@
     margin-block:var(--space-lg);
   }
   .pain-item{
-    background:var(--surface-main);
-    border:1px solid var(--border-subtle);
-    border-radius:12px;
-    padding:18px 20px;
+    background:none;
+    border:none;
+    border-bottom:1px solid var(--border-subtle);
+    border-radius:0;
+    padding:16px 0;
     display:flex;align-items:flex-start;gap:14px;
-    font-size:14px;line-height:1.8;
+    font-size:15px;line-height:1.8;
+    font-family:var(--font-heading);
+    font-weight:400;
   }
   @media (min-width:768px){
-    .pain-item{font-size:15px;padding:22px 26px}
+    .pain-item{font-size:17px;padding:20px 0}
   }
   .pain-item .check{
     flex:none;width:22px;height:22px;border-radius:50%;
@@ -303,9 +311,11 @@
   .sol-card{
     background:var(--surface-main);
     border:1px solid var(--border-subtle);
-    border-radius:12px;
-    padding:28px 24px;
+    border-radius:16px;
+    padding:36px 28px;
     display:flex;flex-direction:column;gap:14px;
+    text-align:center;
+    align-items:center;
   }
   .sol-card .ico{
     width:52px;height:52px;border-radius:50%;
@@ -411,26 +421,28 @@
     .testimonials-grid{grid-template-columns:repeat(3,1fr)}
   }
   .t-card{
-    background:var(--surface-main);
-    border:1px solid var(--border-subtle);
-    border-radius:12px;
-    padding:28px 24px;
+    background:var(--surface-warm);
+    border:none;
+    border-radius:20px;
+    padding:32px 28px;
     position:relative;
     display:flex;flex-direction:column;gap:var(--space-md);
   }
   .t-card::before{
     content:"\201C";
-    position:absolute;top:6px;right:20px;
-    font-family:var(--font-heading);
-    font-size:68px;line-height:1;
+    position:absolute;top:2px;left:24px;
+    font-family:var(--font-accent);
+    font-size:80px;line-height:1;
     color:var(--border-accent);
+    opacity:0.5;
   }
   .t-card blockquote{
     font-family:var(--font-heading);
-    font-size:16px;line-height:1.9;
+    font-size:17px;line-height:1.9;
     color:var(--brand-primary);
+    padding-top:8px;
   }
-  @media (min-width:768px){ .t-card blockquote{font-size:17px} }
+  @media (min-width:768px){ .t-card blockquote{font-size:19px} }
   .t-card .author{
     display:flex;align-items:center;gap:12px;
     padding-top:var(--space-sm);
@@ -449,18 +461,13 @@
   .t-card .meta strong{color:var(--text-primary);font-weight:500;display:block}
   .t-note{font-size:11px;color:var(--text-secondary);text-align:center;letter-spacing:0.06em}
   .google-rating{
-    display:flex;flex-direction:column;align-items:center;gap:6px;
-    margin-block:var(--space-lg);
-    padding:var(--space-md);
-    background:var(--surface-main);
-    border:1px solid var(--border-subtle);
-    border-radius:12px;
-    max-width:320px;margin-inline:auto;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    padding:var(--space-lg) var(--space-md);
   }
-  .google-rating .stars{color:#E8B84E;letter-spacing:0.3em;font-size:14px}
-  .google-rating .score{font-family:var(--font-heading);font-size:14px;color:var(--text-secondary)}
-  .google-rating .score strong{font-size:28px;color:var(--price-highlight);font-weight:700;letter-spacing:-0.02em;margin-right:2px}
-  .google-rating .lbl{font-size:11px;color:var(--text-secondary);letter-spacing:0.08em}
+  .google-rating .stars{color:#E8B84E;letter-spacing:0.4em;font-size:22px}
+  .google-rating .score{font-family:var(--font-heading);font-size:16px;color:var(--text-secondary)}
+  .google-rating .score strong{font-size:48px;color:var(--brand-primary);font-weight:700;letter-spacing:-0.02em;margin-right:4px}
+  .google-rating .lbl{font-size:12px;color:var(--text-secondary);letter-spacing:0.08em}
 
   .space-gallery{
     display:grid;gap:12px;
@@ -484,16 +491,17 @@
 
   .price-hero{
     background:var(--surface-main);
-    border:1px solid var(--border-accent);
-    border-radius:16px;
-    padding:32px 24px;
+    border:none;
+    border-radius:20px;
+    padding:40px 28px;
     text-align:center;
     position:relative;
     overflow:hidden;
+    box-shadow:0 2px 20px rgba(0,0,0,0.04);
   }
   .price-hero::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:4px;
-    background:linear-gradient(90deg,var(--brand-accent) 0%,var(--price-highlight) 100%);
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--brand-accent);
   }
   .price-hero .tag{
     display:inline-block;
@@ -518,8 +526,8 @@
     margin-block:6px;
   }
   .price-hero .big .count{font-size:16px;color:var(--text-secondary);letter-spacing:0.1em;font-weight:500;margin-right:8px;vertical-align:middle;font-family:var(--font-body)}
-  .price-hero .big .num{font-size:56px}
-  @media (min-width:768px){ .price-hero .big .num{font-size:76px} }
+  .price-hero .big .num{font-size:44px}
+  @media (min-width:768px){ .price-hero .big .num{font-size:56px} }
   .price-hero .big .yen{font-size:24px;margin-left:2px;font-weight:500}
   .price-hero .tax{font-size:11px;color:var(--text-secondary);letter-spacing:0.1em}
   .price-hero .notes{
@@ -875,7 +883,7 @@
     font-family:var(--font-accent);font-style:italic;
   }
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity 700ms ease,transform 700ms ease}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 800ms cubic-bezier(0.25,0.1,0.25,1),transform 800ms cubic-bezier(0.25,0.1,0.25,1)}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -924,12 +932,60 @@
   <div class="scroll-cue"><span>scroll</span></div>
 </section>
 
+<!-- 2. セミパーソナルとは -->
+<section>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:var(--space-lg)">
+      <span class="eyebrow">semi-personal</span>
+      <h2 class="section-title">キツすぎず、楽しく続けられる。<br/>最大1対3のセミパーソナル。</h2>
+    </div>
+    <div class="split">
+      <div class="media reveal">
+        <!-- 動画素材が入るまではプレースホルダー画像 -->
+        <img src="https://motoyawata.plf-personal.com/img/toppageimg_04.jpg" alt="セミパーソナルの様子" loading="lazy" />
+        <span class="tag">semi-personal</span>
+      </div>
+      <div class="body reveal" style="transition-delay:120ms">
+        <p>トレーナー1人に対して最大3人。<br/>あなた専用のメニューで、巡回しながら指導します。</p>
+        <p>マンツーマンではないから、<strong style="color:var(--price-highlight);font-weight:700">パーソナルの半額以下</strong>。<br/>でも一人じゃないから、自然と続きます。</p>
+
+        <div class="ratio-viz">
+          <div class="col">
+            <div class="num">1</div>
+            <div class="lbl">trainer</div>
+          </div>
+          <div class="x">:</div>
+          <div class="col">
+            <div class="num">3</div>
+            <div class="lbl">members (max)</div>
+          </div>
+        </div>
+
+        <div class="cta-wrap" style="justify-content:flex-start;margin-top:var(--space-md)">
+          <a href="#cta-final" class="btn btn-primary">セミパーソナルを体験する <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Google評価（社会的証明） -->
+<section class="section-warm">
+  <div class="container" style="text-align:center">
+    <div class="google-rating reveal" style="max-width:100%;margin-inline:auto">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <div class="score"><strong>4.9</strong> <span>/ 5.0</span></div>
+      <div class="lbl">Google 評価スコア（16レビュー）</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 共感 -->
 <section class="section-soft">
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">voice of you</span>
-      <h2 class="section-title">運動不足でこのままじゃまずいって思ってませんか？</h2>
-      <p class="section-subtitle">半年前のあなたが、今のあなたと同じ気持ちだったなら。</p>
+      <h2 class="section-title">運動不足でこのままじゃまずいって<br/>思ってませんか？</h2>
     </div>
     <ul class="pain-list">
       <li class="pain-item reveal">
@@ -960,6 +1016,7 @@
   </div>
 </section>
 
+<!-- 5. PLFなら解決（ボディメンテ3本柱） -->
 <section class="section-warm">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -996,84 +1053,27 @@
   </div>
 </section>
 
+<!-- 6. 空間紹介 -->
 <section>
   <div class="container">
     <div class="reveal" style="text-align:center">
-      <span class="eyebrow">why PLF</span>
-      <h2 class="section-title">選ばれるPLF本八幡の理由。</h2>
+      <span class="eyebrow">our space</span>
+      <h2 class="section-title">清潔で、落ち着いた空間。</h2>
     </div>
-    <div class="features-grid">
-      <div class="feat reveal">
-        <span class="feat-num">01</span>
-        <h3>おしゃれで広々とした空間</h3>
-        <p>自然光が入る清潔な店内。気の散る間なく、自分の体と向き合えます。</p>
-      </div>
-      <div class="feat reveal" style="transition-delay:80ms">
-        <span class="feat-num">02</span>
-        <h3>回数を気にせず通える<br/>通い放題プラン</h3>
-        <p>期間内なら何回でも。「習慣化」したい方に選ばれています。</p>
-      </div>
-      <div class="feat reveal" style="transition-delay:160ms">
-        <span class="feat-num">03</span>
-        <h3>高精度体組成計 × アプリ管理</h3>
-        <p>カラダの変化を数値でしっかり可視化。目標までの距離が見えます。</p>
-      </div>
-      <div class="feat reveal" style="transition-delay:240ms">
-        <span class="feat-num">04</span>
-        <h3>セミパーソナルで<br/>リーズナブルに効率的に</h3>
-        <p>最大3人の少人数制。一人ひとりにトレーナーがメニューを作成。</p>
-      </div>
-      <div class="feat reveal" style="transition-delay:320ms">
-        <span class="feat-num">05</span>
-        <h3>ウェア・シューズレンタル無料</h3>
-        <p>手ぶらでOK。仕事帰りにもふらっと立ち寄れます。</p>
-      </div>
-      <div class="feat reveal" style="transition-delay:400ms">
-        <span class="feat-num">06</span>
-        <h3>お子様連れもOK</h3>
-        <p>産後のカラダの悩みにも、日本産後ダイエット協会認定者が寄り添います。</p>
-      </div>
+    <div class="space-gallery reveal">
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto.jpg" alt="店舗内装" loading="lazy"/></div>
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="コーナー" loading="lazy"/></div>
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="器具" loading="lazy"/></div>
     </div>
+    <p class="space-body reveal">
+      男性だらけの24hジムとは、まるで違います。<br/>
+      明るく、清潔で、落ち着いた空間。<br/>
+      <em style="font-style:normal;color:var(--brand-accent)">美容室に行くような感覚</em>で、通えます。
+    </p>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:var(--space-lg)">
-      <span class="eyebrow">semi-personal</span>
-      <h2 class="section-title">最大3人の少人数制。だから続く。</h2>
-    </div>
-    <div class="split">
-      <div class="media reveal">
-        <img src="https://motoyawata.plf-personal.com/img/toppageimg_04.jpg" alt="セミパーソナルの様子" loading="lazy" />
-        <span class="tag">semi-personal</span>
-      </div>
-      <div class="body reveal" style="transition-delay:120ms">
-        <p>PLFのセミパーソナルは、トレーナー1人に対して最大3人。<br/>一人ひとりに合わせたメニューを組み、トレーナーが巡回しながら指導します。</p>
-        <p>マンツーマンではないから、料金は<strong style="color:var(--price-highlight);font-weight:700">パーソナルの半額以下</strong>。<br/>でも、一人じゃないから、自然と続きます。</p>
-        <div class="quote">「気がついたら、<br/>通うのが楽しみになってた。」</div>
-        <p style="color:var(--text-secondary);font-size:13px">そんな声をいただいています。</p>
-
-        <div class="ratio-viz">
-          <div class="col">
-            <div class="num">1</div>
-            <div class="lbl">trainer</div>
-          </div>
-          <div class="x">:</div>
-          <div class="col">
-            <div class="num">3</div>
-            <div class="lbl">members (max)</div>
-          </div>
-        </div>
-
-        <div class="cta-wrap" style="justify-content:flex-start;margin-top:var(--space-md)">
-          <a href="#cta-final" class="btn btn-primary">セミパーソナルを体験する <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- 7. 会員の声 -->
 <section class="section-soft">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -1103,31 +1103,7 @@
         </div>
       </article>
     </div>
-    <div class="google-rating reveal">
-      <div class="stars">★ ★ ★ ★ ★</div>
-      <div class="score"><strong>4.9</strong> <span>/ 5.0</span></div>
-      <div class="lbl">Google 評価スコア（16レビュー）</div>
-    </div>
     <p class="t-note">全て実際のお客様の声です。</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="eyebrow">our space</span>
-      <h2 class="section-title">清潔で、落ち着いた空間。</h2>
-    </div>
-    <div class="space-gallery reveal">
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto.jpg" alt="店舗内装" loading="lazy"/></div>
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="コーナー" loading="lazy"/></div>
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="器具" loading="lazy"/></div>
-    </div>
-    <p class="space-body reveal">
-      男性だらけの24hジムとは、まるで違います。<br/>
-      明るく、清潔で、落ち着いた空間。<br/>
-      <em style="font-style:normal;color:var(--brand-accent)">美容室に行くような感覚</em>で、通えます。
-    </p>
   </div>
 </section>
 
@@ -1136,7 +1112,6 @@
     <div class="reveal" style="text-align:center">
       <span class="eyebrow">pricing</span>
       <h2 class="section-title">まずは1ヶ月、お試しから。</h2>
-      <p class="section-subtitle">続けられるかどうか、お財布に負担なく試せます。</p>
     </div>
 
     <div class="price-hero reveal">
@@ -1212,21 +1187,21 @@
         <div class="num">step<span class="big">01</span></div>
         <div>
           <h3>ご予約</h3>
-          <p>LINEまたはお電話でご予約ください。ご希望の日時をお伝えいただければ、こちらで調整します。</p>
+          <p>LINEまたはお電話で、ご希望の日時をお伝えください。</p>
         </div>
       </div>
       <div class="flow-step reveal" style="transition-delay:100ms">
         <div class="num">step<span class="big">02</span></div>
         <div>
           <h3>カウンセリング＋体験</h3>
-          <p>お体の状態や目的をヒアリング。実際にセミパーソナルのセッションを体験していただきます。</p>
+          <p>お体の状態をヒアリング後、実際のセッションを体験。</p>
         </div>
       </div>
       <div class="flow-step reveal" style="transition-delay:200ms">
         <div class="num">step<span class="big">03</span></div>
         <div>
           <h3>お試しチケットでスタート</h3>
-          <p>気に入っていただけたら、お試し4回チケットからスタート。無理な勧誘は一切ありません。</p>
+          <p>気に入ったら4回チケットから。無理な勧誘は一切しません。</p>
         </div>
       </div>
     </div>
@@ -1246,7 +1221,7 @@
       <div class="reveal" style="transition-delay:120ms">
         <div class="name-en">trainer</div>
         <div class="name">PLF本八幡 トレーナー</div>
-        <p class="bio">『指導』は『接客』。一方通行ではなくコミュニケーションを大切にしています。<br/>※お写真・お名前は本番素材に差し替え</p>
+        <p class="bio">※お写真・お名前は本番素材に差し替え</p>
         <p class="message">「ただ重いものを持つだけがトレーニングではありません。お一人おひとりの体に合わせて、整えることから始めます。」</p>
       </div>
     </div>

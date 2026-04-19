@@ -919,6 +919,55 @@
   .compare-card.highlight .cc-tag{
     background:rgba(192,131,110,0.1);color:var(--brand-accent);font-weight:500;
   }
+  .pillars{
+    display:grid;gap:12px;
+    margin-top:var(--space-md);
+    max-width:600px;margin-inline:auto;
+  }
+  @media (min-width:640px){.pillars{grid-template-columns:repeat(3,1fr)}}
+  .pillar{
+    background:var(--surface-main);
+    border-radius:14px;
+    padding:24px 18px;
+    text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .pillar .p-num{
+    font-family:var(--font-accent);font-style:italic;
+    font-size:12px;color:var(--brand-accent);letter-spacing:0.15em;
+  }
+  .pillar h4{
+    font-size:15px;font-weight:500;letter-spacing:0.04em;
+  }
+  .pillar p{
+    font-size:12px;line-height:1.7;color:var(--text-secondary);
+  }
+  .amenity-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+    margin-top:var(--space-md);
+    max-width:400px;margin-inline:auto;
+  }
+  @media (min-width:640px){.amenity-grid{grid-template-columns:repeat(4,1fr);max-width:560px}}
+  .amenity-item{
+    background:var(--surface-main);
+    border-radius:14px;
+    padding:20px 12px;
+    text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .amenity-item .a-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--surface-soft);
+    display:grid;place-items:center;
+    color:var(--brand-accent);font-size:18px;
+  }
+  .amenity-item .a-label{
+    font-size:13px;font-weight:500;letter-spacing:0.04em;color:var(--text-primary);
+  }
+  .amenity-note{
+    text-align:center;font-size:11px;color:var(--text-secondary);
+    margin-top:var(--space-sm);letter-spacing:0.06em;
+  }
 
   .campaign{text-align:center}
   .campaign-title{
@@ -1230,7 +1279,25 @@
       <div class="reason-media">
         <img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="ストレッチ・コンディショニング" loading="lazy" />
       </div>
-      <p class="reason-body">トレーニング＋ストレッチ＋コンディショニング。<br/>鍛えるだけじゃない。整える、ほぐす、習慣にする。<br/>それがPLFのボディメンテナンスです。</p>
+      <p class="reason-body">鍛えるだけじゃない。整える、ほぐす、習慣にする。<br/>それがPLFのボディメンテナンスです。</p>
+
+      <div class="pillars reveal">
+        <div class="pillar">
+          <span class="p-num">01</span>
+          <h4>トレーニング</h4>
+          <p>あなたの体に合わせたメニューをトレーナーが組みます。</p>
+        </div>
+        <div class="pillar">
+          <span class="p-num">02</span>
+          <h4>ストレッチ</h4>
+          <p>筋肉をほぐして体の調子を整えます。念入りにやるから効く。</p>
+        </div>
+        <div class="pillar">
+          <span class="p-num">03</span>
+          <h4>コンディショニング</h4>
+          <p>姿勢改善や体のバランスを整えるケア。不調の根本にアプローチ。</p>
+        </div>
+      </div>
     </div>
 
     <!-- 理由3 -->
@@ -1241,6 +1308,26 @@
         <img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="手ぶらでOK" loading="lazy" />
       </div>
       <p class="reason-body">ウェア・シューズのレンタル無料。<br/>仕事帰りにふらっと立ち寄れます。</p>
+
+      <div class="amenity-grid reveal">
+        <div class="amenity-item">
+          <div class="a-icon">&#x1F455;</div>
+          <div class="a-label">ウェア</div>
+        </div>
+        <div class="amenity-item">
+          <div class="a-icon">&#x1F45F;</div>
+          <div class="a-label">シューズ</div>
+        </div>
+        <div class="amenity-item">
+          <div class="a-icon">&#x1F9F4;</div>
+          <div class="a-label">タオル</div>
+        </div>
+        <div class="amenity-item">
+          <div class="a-icon">&#x1F4A7;</div>
+          <div class="a-label">お水</div>
+        </div>
+      </div>
+      <p class="amenity-note reveal">※すべて無料でご利用いただけます</p>
     </div>
   </div>
 </section>

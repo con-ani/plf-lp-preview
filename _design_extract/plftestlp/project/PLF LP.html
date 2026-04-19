@@ -4,30 +4,38 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PLF本八幡 | 週1の習慣で、変わります。</title>
-<meta name="description" content="PLF本八幡 — トレーニング＋ストレッチ＋コンディショニング全部入りで1回2,980円。京成八幡駅 徒歩1分／本八幡駅 徒歩5分。Google評価4.9。" />
-
 <!-- META PIXEL -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
+<script>
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "accent": "#C0836E",
+    "priceAccent": "#C07A5A",
+    "heroVariant": "overlay",
+    "showSakuraDivider": true,
+    "stickyCTA": true
+  }/*EDITMODE-END*/;
+</script>
+
 <style>
   :root{
-    --brand-primary:#555555;
-    --brand-accent:#C0836E;
-    --brand-accent-hover:#B0735E;
+    --brand-primary:#333333;
+    --brand-accent:#7D9B8A;
+    --brand-accent-hover:#6B8A78;
     --surface-main:#FFFFFF;
     --surface-warm:#FAFAF7;
     --surface-soft:#F5F0EB;
     --surface-dark:#3A3A3A;
-    --text-primary:#555555;
+    --text-primary:#333333;
     --text-secondary:#8C8C8C;
     --text-inverse:#FFFFFF;
-    --text-accent:#C0836E;
+    --text-accent:#7D9B8A;
     --price-highlight:#C07A5A;
     --border-subtle:rgba(0,0,0,0.06);
-    --border-accent:rgba(192,131,110,0.3);
+    --border-accent:rgba(125,155,138,0.3);
 
     --font-heading:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
     --font-body:"Noto Sans JP","Hiragino Sans","Meiryo",sans-serif;
@@ -37,8 +45,8 @@
     --space-sm:16px;
     --space-md:24px;
     --space-lg:40px;
-    --space-xl:80px;
-    --space-2xl:120px;
+    --space-xl:64px;
+    --space-2xl:96px;
   }
 
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -52,7 +60,7 @@
     background:var(--surface-main);
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
-    padding-bottom:80px;
+    padding-bottom:80px; /* sticky CTA */
   }
   @media (min-width:768px){
     body{font-size:16px;padding-bottom:0}
@@ -70,7 +78,9 @@
     .container{padding-inline:40px}
   }
 
-  section{padding-block:var(--space-xl)}
+  section{
+    padding-block:var(--space-xl);
+  }
   @media (min-width:768px){
     section{padding-block:var(--space-2xl)}
   }
@@ -79,38 +89,49 @@
   .section-soft{background:var(--surface-soft)}
   .section-dark{background:var(--surface-dark);color:var(--text-inverse)}
 
+  /* ===== Type ===== */
   h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:0.02em;color:var(--brand-primary)}
   .section-dark h1,.section-dark h2,.section-dark h3,.section-dark h4{color:var(--text-inverse)}
 
   .eyebrow{
     font-family:var(--font-accent);
-    font-size:14px;
+    font-size:13px;
     font-style:italic;
-    letter-spacing:0.18em;
+    letter-spacing:0.12em;
     color:var(--brand-accent);
     text-transform:lowercase;
-    margin-bottom:var(--space-md);
+    margin-bottom:var(--space-sm);
     display:inline-block;
   }
-  .eyebrow::before,.eyebrow::after{
+  .eyebrow::before{
     content:"";display:inline-block;width:28px;height:1px;background:var(--brand-accent);
-    vertical-align:middle;
+    vertical-align:middle;margin-right:10px;
   }
-  .eyebrow::before{margin-right:12px}
-  .eyebrow::after{margin-left:12px}
 
   .section-title{
-    font-size:22px;line-height:1.55;
+    font-size:20px;line-height:1.4;
     margin-bottom:var(--space-md);
-    font-weight:500;
   }
-  @media (min-width:768px){ .section-title{font-size:30px} }
+  @media (min-width:768px){
+    .section-title{font-size:26px}
+  }
   .section-subtitle{
     color:var(--text-secondary);font-size:13px;
     margin-bottom:var(--space-lg);
   }
   @media (min-width:768px){ .section-subtitle{font-size:14px} }
 
+  .sakura-divider{
+    display:flex;align-items:center;gap:14px;
+    color:var(--brand-accent);
+    margin-block:var(--space-lg);
+  }
+  .sakura-divider::before,.sakura-divider::after{
+    content:"";flex:1;height:1px;background:var(--border-accent);
+  }
+  .sakura-divider svg{width:10px;height:10px;opacity:0.7}
+
+  /* ===== Buttons ===== */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
     font-family:var(--font-body);
@@ -125,12 +146,12 @@
   .btn-primary{
     background:var(--brand-accent);
     color:var(--text-inverse);
-    box-shadow:0 2px 8px rgba(192,131,110,0.3);
+    box-shadow:0 2px 8px rgba(125,155,138,0.3);
   }
   .btn-primary:hover{
     background:var(--brand-accent-hover);
     transform:translateY(-1px);
-    box-shadow:0 4px 14px rgba(192,131,110,0.35);
+    box-shadow:0 4px 14px rgba(125,155,138,0.35);
   }
   .btn-secondary{
     background:transparent;
@@ -147,6 +168,7 @@
   .btn-ghost-dark:hover{
     background:var(--surface-warm);
   }
+  .btn-full{width:100%;height:56px;padding:0 24px}
   .btn .arrow{transition:transform 220ms ease}
   .btn:hover .arrow{transform:translateX(4px)}
 
@@ -155,6 +177,7 @@
     display:flex;justify-content:center;
   }
 
+  /* ===== Header ===== */
   .site-header{
     position:sticky;top:0;z-index:50;
     background:rgba(255,255,255,0.92);
@@ -184,6 +207,7 @@
   }
   .nav-cta:hover{background:var(--brand-accent);color:#fff;border-color:var(--brand-accent)}
 
+  /* ===== Hero ===== */
   .hero{
     position:relative;
     min-height:min(92svh,760px);
@@ -223,7 +247,9 @@
     margin-bottom:var(--space-md);
     font-weight:500;
   }
-  .hero h1 .accent-word{color:var(--brand-accent);font-weight:700}
+  .hero h1 .accent-word{
+    color:var(--brand-accent);font-weight:700;
+  }
   @media (min-width:768px){
     .hero h1{font-size:40px;line-height:1.5}
   }
@@ -233,9 +259,11 @@
     margin-bottom:var(--space-lg);
   }
   @media (min-width:768px){ .hero .sub{font-size:15px} }
-  .hero .price-inline{color:var(--price-highlight);font-weight:700}
+  .hero .price-inline{
+    color:var(--price-highlight);font-weight:700;
+  }
   .hero .meta{
-    display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+    display:flex;justify-content:center;gap:18px;
     font-size:11px;letter-spacing:0.12em;color:var(--text-secondary);
     margin-top:var(--space-md);
     font-family:var(--font-accent);
@@ -262,24 +290,23 @@
     100%{transform:scaleY(0);opacity:0.2;transform-origin:bottom}
   }
 
+  /* ===== Pain Points ===== */
   .pain-list{
     list-style:none;
     display:flex;flex-direction:column;gap:14px;
     margin-block:var(--space-lg);
   }
   .pain-item{
-    background:none;
-    border:none;
-    border-bottom:1px solid var(--border-subtle);
-    border-radius:0;
-    padding:16px 0;
+    background:var(--surface-main);
+    border:1px solid var(--border-subtle);
+    border-radius:12px;
+    padding:18px 20px;
     display:flex;align-items:flex-start;gap:14px;
-    font-size:15px;line-height:1.8;
-    font-family:var(--font-heading);
-    font-weight:400;
+    font-size:14px;
+    line-height:1.8;
   }
   @media (min-width:768px){
-    .pain-item{font-size:17px;padding:20px 0}
+    .pain-item{font-size:15px;padding:22px 26px}
   }
   .pain-item .check{
     flex:none;width:22px;height:22px;border-radius:50%;
@@ -291,7 +318,8 @@
   .pain-closing{
     text-align:center;
     font-family:var(--font-heading);
-    font-size:15px;line-height:1.8;
+    font-size:15px;
+    line-height:1.8;
     margin-top:var(--space-lg);
     color:var(--brand-primary);
   }
@@ -301,6 +329,7 @@
     padding-bottom:2px;border-bottom:1px solid var(--border-accent);
   }
 
+  /* ===== Solution (3 cards) ===== */
   .solution-grid{
     display:grid;gap:16px;
     margin-block:var(--space-lg);
@@ -311,24 +340,26 @@
   .sol-card{
     background:var(--surface-main);
     border:1px solid var(--border-subtle);
-    border-radius:16px;
-    padding:36px 28px;
+    border-radius:12px;
+    padding:28px 24px;
     display:flex;flex-direction:column;gap:14px;
-    text-align:center;
-    align-items:center;
   }
   .sol-card .ico{
     width:52px;height:52px;border-radius:50%;
     background:var(--surface-soft);
     display:grid;place-items:center;color:var(--brand-accent);
   }
-  .sol-card h3{font-size:17px;letter-spacing:0.06em}
+  .sol-card h3{
+    font-size:17px;letter-spacing:0.06em;
+  }
   @media (min-width:768px){ .sol-card h3{font-size:19px} }
   .sol-card .num{
     font-family:var(--font-accent);font-style:italic;
     font-size:13px;color:var(--brand-accent);letter-spacing:0.2em;
   }
-  .sol-card p{font-size:13px;line-height:1.9;color:var(--text-primary)}
+  .sol-card p{
+    font-size:13px;line-height:1.9;color:var(--text-primary);
+  }
   @media (min-width:768px){ .sol-card p{font-size:14px} }
   .solution-closing{
     text-align:center;
@@ -337,6 +368,7 @@
     margin-top:var(--space-md);
   }
 
+  /* ===== Features grid ===== */
   .features-grid{
     display:grid;gap:1px;
     margin-top:var(--space-lg);
@@ -361,13 +393,16 @@
     font-family:var(--font-accent);font-style:italic;
     color:var(--brand-accent);font-size:12px;letter-spacing:0.2em;
   }
-  .feat h3{font-size:15px;line-height:1.6;letter-spacing:0.04em}
+  .feat h3{
+    font-size:15px;line-height:1.6;letter-spacing:0.04em;
+  }
   @media (min-width:768px){ .feat h3{font-size:16px} }
   .feat p{
     font-size:12.5px;line-height:1.8;color:var(--text-secondary);letter-spacing:0.04em;
   }
   @media (min-width:768px){ .feat p{font-size:13px} }
 
+  /* ===== Semi-personal ===== */
   .split{
     display:grid;gap:var(--space-md);
     align-items:center;
@@ -414,6 +449,7 @@
   .ratio-viz .lbl{font-size:11px;color:var(--text-secondary);letter-spacing:0.12em;margin-top:6px}
   .ratio-viz .x{color:var(--text-secondary);font-family:var(--font-accent);font-size:18px}
 
+  /* ===== Testimonials ===== */
   .testimonials-grid{
     display:grid;gap:16px;margin-block:var(--space-lg);
   }
@@ -421,28 +457,26 @@
     .testimonials-grid{grid-template-columns:repeat(3,1fr)}
   }
   .t-card{
-    background:var(--surface-warm);
-    border:none;
-    border-radius:20px;
-    padding:32px 28px;
+    background:var(--surface-main);
+    border:1px solid var(--border-subtle);
+    border-radius:12px;
+    padding:28px 24px;
     position:relative;
     display:flex;flex-direction:column;gap:var(--space-md);
   }
   .t-card::before{
-    content:"\201C";
-    position:absolute;top:2px;left:24px;
-    font-family:var(--font-accent);
-    font-size:80px;line-height:1;
+    content:"“";
+    position:absolute;top:6px;right:20px;
+    font-family:var(--font-heading);
+    font-size:68px;line-height:1;
     color:var(--border-accent);
-    opacity:0.5;
   }
   .t-card blockquote{
     font-family:var(--font-heading);
-    font-size:17px;line-height:1.9;
+    font-size:16px;line-height:1.9;
     color:var(--brand-primary);
-    padding-top:8px;
   }
-  @media (min-width:768px){ .t-card blockquote{font-size:19px} }
+  @media (min-width:768px){ .t-card blockquote{font-size:17px} }
   .t-card .author{
     display:flex;align-items:center;gap:12px;
     padding-top:var(--space-sm);
@@ -461,14 +495,20 @@
   .t-card .meta strong{color:var(--text-primary);font-weight:500;display:block}
   .t-note{font-size:11px;color:var(--text-secondary);text-align:center;letter-spacing:0.06em}
   .google-rating{
-    display:flex;flex-direction:column;align-items:center;gap:10px;
-    padding:var(--space-lg) var(--space-md);
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    margin-block:var(--space-lg);
+    padding:var(--space-md);
+    background:var(--surface-main);
+    border:1px solid var(--border-subtle);
+    border-radius:12px;
+    max-width:320px;margin-inline:auto;
   }
-  .google-rating .stars{color:#E8B84E;letter-spacing:0.4em;font-size:22px}
-  .google-rating .score{font-family:var(--font-heading);font-size:16px;color:var(--text-secondary)}
-  .google-rating .score strong{font-size:48px;color:var(--brand-primary);font-weight:700;letter-spacing:-0.02em;margin-right:4px}
-  .google-rating .lbl{font-size:12px;color:var(--text-secondary);letter-spacing:0.08em}
+  .google-rating .stars{color:#E8B84E;letter-spacing:0.3em;font-size:14px}
+  .google-rating .score{font-family:var(--font-heading);font-size:14px;color:var(--text-secondary)}
+  .google-rating .score strong{font-size:28px;color:var(--price-highlight);font-weight:700;letter-spacing:-0.02em;margin-right:2px}
+  .google-rating .lbl{font-size:11px;color:var(--text-secondary);letter-spacing:0.08em}
 
+  /* ===== Space ===== */
   .space-gallery{
     display:grid;gap:12px;
     grid-template-columns:2fr 1fr;
@@ -489,19 +529,19 @@
   }
   @media (min-width:768px){ .space-body{font-size:17px} }
 
+  /* ===== Pricing ===== */
   .price-hero{
     background:var(--surface-main);
-    border:none;
-    border-radius:20px;
-    padding:40px 28px;
+    border:1px solid var(--border-accent);
+    border-radius:16px;
+    padding:32px 24px;
     text-align:center;
     position:relative;
     overflow:hidden;
-    box-shadow:0 2px 20px rgba(0,0,0,0.04);
   }
   .price-hero::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:var(--brand-accent);
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--brand-accent) 0%,var(--price-highlight) 100%);
   }
   .price-hero .tag{
     display:inline-block;
@@ -526,8 +566,8 @@
     margin-block:6px;
   }
   .price-hero .big .count{font-size:16px;color:var(--text-secondary);letter-spacing:0.1em;font-weight:500;margin-right:8px;vertical-align:middle;font-family:var(--font-body)}
-  .price-hero .big .num{font-size:44px}
-  @media (min-width:768px){ .price-hero .big .num{font-size:56px} }
+  .price-hero .big .num{font-size:56px}
+  @media (min-width:768px){ .price-hero .big .num{font-size:76px} }
   .price-hero .big .yen{font-size:24px;margin-left:2px;font-weight:500}
   .price-hero .tax{font-size:11px;color:var(--text-secondary);letter-spacing:0.1em}
   .price-hero .notes{
@@ -549,7 +589,9 @@
     border:1px solid var(--border-subtle);
     border-radius:12px;
   }
-  .plan-row .name{font-size:13px;letter-spacing:0.06em}
+  .plan-row .name{
+    font-size:13px;letter-spacing:0.06em;
+  }
   @media (min-width:768px){ .plan-row .name{font-size:14px} }
   .plan-row .name small{display:block;color:var(--text-secondary);font-size:11px;margin-top:2px;letter-spacing:0.08em}
   .plan-row .price{
@@ -592,6 +634,7 @@
   .compare-table td.plf-col strong{color:var(--price-highlight);font-family:var(--font-heading);font-size:14px;letter-spacing:-0.01em}
   .compare-table td.other{color:var(--text-secondary)}
 
+  /* ===== Flow ===== */
   .flow{
     display:flex;flex-direction:column;gap:0;
     margin-block:var(--space-lg);
@@ -624,10 +667,13 @@
     font-size:40px;line-height:1;color:var(--brand-accent);
     font-weight:500;letter-spacing:0;margin-top:6px;
   }
-  .flow-step h3{font-size:17px;margin-bottom:10px;letter-spacing:0.04em}
+  .flow-step h3{
+    font-size:17px;margin-bottom:10px;letter-spacing:0.04em;
+  }
   @media (min-width:768px){ .flow-step h3{font-size:20px} }
   .flow-step p{font-size:14px;line-height:1.9;color:var(--brand-primary)}
 
+  /* ===== Trainer ===== */
   .trainer{
     display:grid;gap:var(--space-md);
     align-items:center;
@@ -639,7 +685,6 @@
     aspect-ratio:4/5;border-radius:12px;overflow:hidden;
     background:var(--surface-soft);
   }
-  .trainer .media img{width:100%;height:100%;object-fit:cover}
   .trainer .name{
     font-family:var(--font-heading);font-size:22px;margin-bottom:4px;letter-spacing:0.04em;
   }
@@ -660,8 +705,11 @@
   }
   @media (min-width:768px){ .trainer .message{font-size:16px} }
 
+  /* ===== FAQ ===== */
   .faq{margin-block:var(--space-lg)}
-  .faq-item{border-bottom:1px solid var(--border-subtle)}
+  .faq-item{
+    border-bottom:1px solid var(--border-subtle);
+  }
   .faq-q{
     width:100%;
     text-align:left;
@@ -712,7 +760,15 @@
     color:var(--price-highlight);font-size:18px;
   }
 
-  .final-cta{text-align:center;position:relative;overflow:hidden}
+  /* ===== Final CTA ===== */
+  .final-cta{
+    text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .final-cta::before,.final-cta::after{
+    content:"";position:absolute;
+    width:1px;background:rgba(255,255,255,0.15);
+  }
   .final-cta .kicker{
     font-family:var(--font-accent);font-style:italic;
     color:rgba(255,255,255,0.65);
@@ -730,163 +786,8 @@
     margin-bottom:var(--space-lg);
   }
 
-  .step-form{
-    margin-top:var(--space-xl);
-    background:var(--surface-main);
-    border-radius:16px;
-    padding:32px 24px;
-    text-align:center;
-    color:var(--text-primary);
-    min-height:320px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-  }
-  @media (min-width:768px){
-    .step-form{padding:48px;min-height:360px}
-  }
-  .step-progress{
-    display:flex;gap:8px;margin-bottom:var(--space-lg);
-  }
-  .step-dot{
-    width:8px;height:8px;border-radius:50%;
-    background:var(--border-subtle);
-    transition:background 300ms ease;
-  }
-  .step-dot.active{background:var(--brand-accent)}
-  .step-dot.done{background:var(--brand-accent);opacity:0.5}
-  .step{
-    display:none;flex-direction:column;align-items:center;
-    width:100%;max-width:400px;
-    animation:stepIn 300ms ease;
-  }
-  .step.active{display:flex}
-  @keyframes stepIn{
-    from{opacity:0;transform:translateY(12px)}
-    to{opacity:1;transform:none}
-  }
-  .step-label{
-    font-family:var(--font-heading);
-    font-size:18px;line-height:1.6;
-    margin-bottom:var(--space-md);
-    color:var(--brand-primary);
-  }
-  @media (min-width:768px){.step-label{font-size:20px}}
-  .step input,.step select{
-    width:100%;
-    padding:14px 16px;
-    border:1px solid var(--border-subtle);
-    border-radius:10px;
-    font-family:var(--font-body);
-    font-size:16px;
-    color:var(--text-primary);
-    background:var(--surface-warm);
-    text-align:center;
-    transition:border-color 200ms ease;
-    appearance:none;-webkit-appearance:none;
-  }
-  .step input:focus,.step select:focus{
-    outline:none;border-color:var(--brand-accent);
-  }
-  .step select{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8C8C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;
-    background-position:right 14px center;
-    padding-right:36px;
-  }
-  .step-birth-row{
-    display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;width:100%;
-  }
-  .step-nav{
-    display:flex;gap:12px;margin-top:var(--space-md);width:100%;
-    justify-content:center;
-  }
-  .step-nav .btn{min-width:160px;height:52px;font-size:14px}
-  .step-back{
-    background:none;border:none;
-    font-family:var(--font-body);font-size:13px;
-    color:var(--text-secondary);letter-spacing:0.06em;
-    cursor:pointer;padding:8px 16px;
-    transition:color 200ms ease;
-  }
-  .step-back:hover{color:var(--text-primary)}
-  .step-confirm-list{
-    width:100%;text-align:left;
-    display:flex;flex-direction:column;gap:12px;
-    margin-bottom:var(--space-md);
-  }
-  .step-confirm-item{
-    display:flex;justify-content:space-between;align-items:baseline;
-    padding:10px 0;
-    border-bottom:1px solid var(--border-subtle);
-    font-size:14px;
-  }
-  .step-confirm-item .cl{color:var(--text-secondary);font-size:12px;letter-spacing:0.06em}
-  .step-confirm-item .cv{color:var(--text-primary);font-weight:500}
-  .step-done{
-    display:none;flex-direction:column;align-items:center;gap:var(--space-sm);
-  }
-  .step-done.active{display:flex}
-  .step-done .check-circle{
-    width:56px;height:56px;border-radius:50%;
-    background:var(--brand-accent);color:#fff;
-    display:grid;place-items:center;
-    margin-bottom:var(--space-xs);
-  }
-  .step-done h3{
-    font-size:20px;color:var(--brand-primary);
-  }
-  .step-done p{
-    font-size:14px;color:var(--text-secondary);line-height:1.8;
-  }
-
-  .campaign{text-align:center}
-  .campaign-title{
-    font-family:var(--font-accent);
-    font-size:13px;letter-spacing:0.2em;font-style:italic;
-    color:var(--brand-accent);
-    margin-bottom:var(--space-xs);
-  }
-  .campaign h2{
-    font-size:22px;margin-bottom:var(--space-lg);
-  }
-  @media (min-width:768px){.campaign h2{font-size:28px}}
-  .campaign-grid{
-    display:grid;gap:12px;
-  }
-  @media (min-width:640px){
-    .campaign-grid{grid-template-columns:repeat(3,1fr)}
-  }
-  .campaign-card{
-    background:var(--surface-main);
-    border-radius:16px;
-    padding:28px 20px;
-    box-shadow:0 1px 12px rgba(0,0,0,0.04);
-    display:flex;flex-direction:column;align-items:center;gap:8px;
-  }
-  .campaign-card .c-num{
-    font-family:var(--font-accent);font-style:italic;
-    font-size:14px;color:var(--brand-accent);letter-spacing:0.15em;
-  }
-  .campaign-card .c-label{
-    font-family:var(--font-heading);
-    font-size:15px;color:var(--text-primary);letter-spacing:0.04em;
-  }
-  .campaign-card .c-price{
-    font-family:var(--font-heading);
-    font-size:36px;font-weight:700;
-    color:var(--price-highlight);
-    line-height:1.1;letter-spacing:-0.02em;
-  }
-  .campaign-card .c-price .yen{font-size:16px;font-weight:500;margin-left:2px}
-  .campaign-card .c-original{
-    font-size:12px;color:var(--text-secondary);
-    text-decoration:line-through;letter-spacing:0.06em;
-  }
-  .campaign-card .c-note{
-    font-size:11px;color:var(--text-secondary);letter-spacing:0.06em;
-  }
-
   .access{
-    margin-top:var(--space-xl);
+    margin-top:var(--space-2xl);
     padding-top:var(--space-lg);
     border-top:1px solid rgba(255,255,255,0.12);
     display:grid;gap:var(--space-sm);
@@ -906,6 +807,7 @@
   }
   .access .v strong{display:block;font-family:var(--font-heading);font-size:16px;color:#fff;margin-bottom:4px;letter-spacing:0.06em}
 
+  /* ===== Sticky CTA (mobile) ===== */
   .sticky-cta{
     position:fixed;left:0;right:0;bottom:0;z-index:40;
     background:rgba(255,255,255,0.96);
@@ -917,11 +819,14 @@
     transition:transform 260ms ease;
   }
   .sticky-cta.hidden{transform:translateY(100%)}
-  .sticky-cta .btn{width:100%;height:52px;padding:0;font-size:13px}
+  .sticky-cta .btn{
+    width:100%;height:52px;padding:0;font-size:13px;
+  }
   @media (min-width:768px){
     .sticky-cta{display:none}
   }
 
+  /* ===== Footer ===== */
   .footer{
     background:#2D2D2D;
     color:rgba(255,255,255,0.6);
@@ -930,17 +835,50 @@
     font-family:var(--font-accent);font-style:italic;
   }
 
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity 800ms cubic-bezier(0.25,0.1,0.25,1),transform 800ms cubic-bezier(0.25,0.1,0.25,1)}
+  /* ===== Reveal anim ===== */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity 700ms ease,transform 700ms ease}
   .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){
-    .reveal{opacity:1;transform:none;transition:none}
-    .scroll-cue::after{animation:none}
-    html{scroll-behavior:auto}
+
+  /* ===== Tweaks panel ===== */
+  #tweaks-panel{
+    position:fixed;right:20px;bottom:100px;z-index:100;
+    width:280px;
+    background:var(--surface-main);
+    border:1px solid var(--border-subtle);
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.1);
+    padding:18px;
+    font-size:12px;
+    display:none;
   }
+  #tweaks-panel.on{display:block}
+  #tweaks-panel h4{
+    font-family:var(--font-accent);font-style:italic;font-size:14px;
+    letter-spacing:0.12em;color:var(--brand-primary);
+    margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);
+    font-weight:500;
+  }
+  #tweaks-panel .row{margin-bottom:14px}
+  #tweaks-panel .row:last-child{margin-bottom:0}
+  #tweaks-panel label{
+    display:block;color:var(--text-secondary);font-size:11px;letter-spacing:0.08em;margin-bottom:6px;
+  }
+  #tweaks-panel .swatches{display:flex;gap:8px;flex-wrap:wrap}
+  #tweaks-panel .sw{
+    width:28px;height:28px;border-radius:50%;
+    border:2px solid transparent;cursor:pointer;
+    transition:transform 180ms ease;
+  }
+  #tweaks-panel .sw.active{border-color:var(--brand-primary)}
+  #tweaks-panel .sw:hover{transform:scale(1.08)}
+  #tweaks-panel select,#tweaks-panel input[type=checkbox]{font-family:inherit;font-size:12px}
+  #tweaks-panel select{width:100%;padding:6px 10px;border:1px solid var(--border-subtle);border-radius:8px;background:#fff}
+  #tweaks-panel .toggle-row{display:flex;align-items:center;justify-content:space-between}
 </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="inner">
     <div class="logo">
@@ -951,7 +889,8 @@
   </div>
 </header>
 
-<section class="hero">
+<!-- ===== Section 1: Hero ===== -->
+<section class="hero" data-screen-label="01 Hero">
   <div class="bg" aria-hidden="true"></div>
   <div class="inner">
     <div class="greeting reveal">
@@ -979,53 +918,139 @@
   <div class="scroll-cue"><span>scroll</span></div>
 </section>
 
-<!-- 2. キャンペーン -->
-<section class="section-soft campaign">
+<!-- ===== Section 2: Pain Points ===== -->
+<section class="section-soft" data-screen-label="02 Pain Points">
   <div class="container">
     <div class="reveal">
-      <div class="campaign-title">campaign</div>
-      <h2>今だけの<span style="color:var(--price-highlight)">3</span>大特典</h2>
+      <span class="eyebrow">voice of you</span>
+      <h2 class="section-title">こんなこと、思っていませんか？</h2>
+      <p class="section-subtitle">半年前のあなたが、今のあなたと同じ気持ちだったなら。</p>
     </div>
-    <div class="campaign-grid">
-      <div class="campaign-card reveal">
-        <span class="c-num">01</span>
-        <span class="c-label">体験セッション</span>
-        <span class="c-original">通常料金</span>
-        <span class="c-price">0<span class="yen">円</span></span>
+    <ul class="pain-list">
+      <li class="pain-item reveal">
+        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        最近、なんとなく体が重い。疲れが取れない
+      </li>
+      <li class="pain-item reveal" style="transition-delay:80ms">
+        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        「運動しなきゃ」と思いながら、もう半年以上何もしていない
+      </li>
+      <li class="pain-item reveal" style="transition-delay:160ms">
+        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        ジムは気になるけど、何をすればいいかわからない
+      </li>
+      <li class="pain-item reveal" style="transition-delay:240ms">
+        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        男性が多いジムはちょっと入りづらい
+      </li>
+      <li class="pain-item reveal" style="transition-delay:320ms">
+        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        パーソナルジムは高すぎて、続けられる気がしない
+      </li>
+    </ul>
+    <p class="pain-closing reveal">ひとつでも当てはまるなら、<em>PLFがお力になれる</em>かもしれません。</p>
+    <div class="cta-wrap reveal">
+      <a href="#cta-final" class="btn btn-secondary">まずはお試しから <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 3: Solution ===== -->
+<section class="section-warm" data-screen-label="03 Solution">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow">what we offer</span>
+      <h2 class="section-title">PLFは、体をまるごと整える場所です。</h2>
+    </div>
+    <div class="solution-grid">
+      <div class="sol-card reveal">
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h2v4H4zM18 10h2v4h-2zM6 12h12"/><path d="M2 11h2v2H2zM20 11h2v2h-2z"/></svg>
+        </div>
+        <span class="num">01</span>
+        <h3>トレーニング</h3>
+        <p>あなたの体に合わせたメニューをトレーナーが組みます。重いものを持つだけがトレーニングではありません。</p>
       </div>
-      <div class="campaign-card reveal" style="transition-delay:100ms">
-        <span class="c-num">02</span>
-        <span class="c-label">お試し4回チケット</span>
-        <span class="c-note">セミパーソナル・日中限定</span>
-        <span class="c-price">2,980<span class="yen">円</span></span>
-        <span class="c-note">1回あたり（税込）</span>
+      <div class="sol-card reveal" style="transition-delay:100ms">
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16c0-4 2-7 6-7s6 3 6 7"/><path d="M9 9V5a3 3 0 116 0v4"/><path d="M4 20h16"/></svg>
+        </div>
+        <span class="num">02</span>
+        <h3>ストレッチ＋コンディショニング</h3>
+        <p>筋肉を鍛えるだけでなく、ストレッチとコンディショニングで体の調子を整えます。</p>
       </div>
-      <div class="campaign-card reveal" style="transition-delay:200ms">
-        <span class="c-num">03</span>
-        <span class="c-label">入会金割引</span>
-        <span class="c-note">※詳細は体験時にご案内</span>
-        <span class="c-price" style="font-size:24px">お得に<span class="yen" style="font-size:24px">!</span></span>
+      <div class="sol-card reveal" style="transition-delay:200ms">
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5-3-8-7-8-12a5 5 0 018-4 5 5 0 018 4c0 5-3 9-8 12z" opacity=".0"/><path d="M12 21c0-6 3-10 8-11"/><path d="M12 21c0-5-2-9-6-11"/><path d="M12 21V9"/></svg>
+        </div>
+        <span class="num">03</span>
+        <h3>食事アドバイス</h3>
+        <p>日々の食事についても、無理のない範囲でアドバイス。生活習慣ごと変わります。</p>
+      </div>
+    </div>
+    <p class="solution-closing reveal">鍛えるだけじゃない。<br/>整える、ほぐす、習慣にする。<br/>それがPLFのボディメンテナンスです。</p>
+  </div>
+</section>
+
+<!-- ===== Section 3.5: Features grid ===== -->
+<section data-screen-label="03b Features">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow">why PLF</span>
+      <h2 class="section-title">選ばれるPLF本八幡の理由。</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat reveal">
+        <span class="feat-num">01</span>
+        <h3>おしゃれで広々とした空間</h3>
+        <p>自然光が入る清潔な店内。気の散る間なく、自分の体と向き合えます。</p>
+      </div>
+      <div class="feat reveal" style="transition-delay:80ms">
+        <span class="feat-num">02</span>
+        <h3>回数を気にせず通える<br/>通い放題プラン</h3>
+        <p>期間内なら何回でも。「習慣化」したい方に選ばれています。</p>
+      </div>
+      <div class="feat reveal" style="transition-delay:160ms">
+        <span class="feat-num">03</span>
+        <h3>高精度体組成計 × アプリ管理</h3>
+        <p>カラダの変化を数値でしっかり可視化。目標までの距離が見えます。</p>
+      </div>
+      <div class="feat reveal" style="transition-delay:240ms">
+        <span class="feat-num">04</span>
+        <h3>セミパーソナルで<br/>リーズナブルに効率的に</h3>
+        <p>最大3人の少人数制。一人ひとりにトレーナーがメニューを作成。</p>
+      </div>
+      <div class="feat reveal" style="transition-delay:320ms">
+        <span class="feat-num">05</span>
+        <h3>ウェア・シューズレンタル無料</h3>
+        <p>手ぶらでOK。仕事帰りにもふらっと立ち寄れます。</p>
+      </div>
+      <div class="feat reveal" style="transition-delay:400ms">
+        <span class="feat-num">06</span>
+        <h3>お子様連れもOK</h3>
+        <p>産後のカラダの悩みにも、日本産後ダイエット協会認定者が寄り添います。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. セミパーソナルとは -->
-<section>
+<!-- ===== Section 4: Semi-personal ===== -->
+<section data-screen-label="04 Semi-personal">
   <div class="container">
     <div class="reveal" style="text-align:center;margin-bottom:var(--space-lg)">
       <span class="eyebrow">semi-personal</span>
-      <h2 class="section-title">キツすぎず、楽しく続けられる。<br/>最大1対3のセミパーソナル。</h2>
+      <h2 class="section-title">最大3人の少人数制。だから続く。</h2>
     </div>
     <div class="split">
       <div class="media reveal">
-        <!-- 動画素材が入るまではプレースホルダー画像 -->
         <img src="https://motoyawata.plf-personal.com/img/toppageimg_04.jpg" alt="セミパーソナルの様子" loading="lazy" />
         <span class="tag">semi-personal</span>
       </div>
       <div class="body reveal" style="transition-delay:120ms">
-        <p>トレーナー1人に対して最大3人。<br/>あなた専用のメニューで、巡回しながら指導します。</p>
-        <p>マンツーマンではないから、<strong style="color:var(--price-highlight);font-weight:700">パーソナルの半額以下</strong>。<br/>でも一人じゃないから、自然と続きます。</p>
+        <p>PLFのセミパーソナルは、トレーナー1人に対して最大3人。<br/>一人ひとりに合わせたメニューを組み、トレーナーが巡回しながら指導します。</p>
+        <p>マンツーマンではないから、料金は<strong style="color:var(--price-highlight);font-weight:700">パーソナルの半額以下</strong>。<br/>でも、一人じゃないから、自然と続きます。</p>
+        <div class="quote">「気がついたら、<br/>通うのが楽しみになってた。」</div>
+        <p style="color:var(--text-secondary);font-size:13px">そんな声をいただいています。</p>
 
         <div class="ratio-viz">
           <div class="col">
@@ -1047,112 +1072,8 @@
   </div>
 </section>
 
-<!-- 3. Google評価（社会的証明） -->
-<section class="section-warm">
-  <div class="container" style="text-align:center">
-    <div class="google-rating reveal" style="max-width:100%;margin-inline:auto">
-      <div class="stars">★ ★ ★ ★ ★</div>
-      <div class="score"><strong>4.9</strong> <span>/ 5.0</span></div>
-      <div class="lbl">Google 評価スコア（16レビュー）</div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 共感 -->
-<section class="section-soft">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">voice of you</span>
-      <h2 class="section-title">運動不足でこのままじゃまずいって<br/>思ってませんか？</h2>
-    </div>
-    <ul class="pain-list">
-      <li class="pain-item reveal">
-        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        最近、なんとなく体が重い。疲れが取れない
-      </li>
-      <li class="pain-item reveal" style="transition-delay:80ms">
-        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        「運動しなきゃ」と思いながら、もう半年以上何もしていない
-      </li>
-      <li class="pain-item reveal" style="transition-delay:160ms">
-        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        ジムは気になるけど、何をすればいいかわからない
-      </li>
-      <li class="pain-item reveal" style="transition-delay:240ms">
-        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        男性が多いジムはちょっと入りづらい
-      </li>
-      <li class="pain-item reveal" style="transition-delay:320ms">
-        <span class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        パーソナルジムは高すぎて、続けられる気がしない
-      </li>
-    </ul>
-    <p class="pain-closing reveal">ひとつでも当てはまるなら、<em>PLFがお力になれる</em>かもしれません。</p>
-    <div class="cta-wrap reveal">
-      <a href="#cta-final" class="btn btn-secondary">まずはお試しから <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 5. PLFなら解決（ボディメンテ3本柱） -->
-<section class="section-warm">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="eyebrow">what we offer</span>
-      <h2 class="section-title">PLFは、体をまるごと整える場所です。</h2>
-    </div>
-    <div class="solution-grid">
-      <div class="sol-card reveal">
-        <div class="ico">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h2v4H4zM18 10h2v4h-2zM6 12h12"/><path d="M2 11h2v2H2zM20 11h2v2h-2z"/></svg>
-        </div>
-        <span class="num">01</span>
-        <h3>トレーニング</h3>
-        <p>あなたの体に合わせたメニューをトレーナーが組みます。重いものを持つだけがトレーニングではありません。</p>
-      </div>
-      <div class="sol-card reveal" style="transition-delay:100ms">
-        <div class="ico">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16c0-4 2-7 6-7s6 3 6 7"/><path d="M9 9V5a3 3 0 116 0v4"/><path d="M4 20h16"/></svg>
-        </div>
-        <span class="num">02</span>
-        <h3>ストレッチ＋コンディショニング</h3>
-        <p>筋肉を鍛えるだけでなく、ストレッチとコンディショニングで体の調子を整えます。</p>
-      </div>
-      <div class="sol-card reveal" style="transition-delay:200ms">
-        <div class="ico">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c0-6 3-10 8-11"/><path d="M12 21c0-5-2-9-6-11"/><path d="M12 21V9"/></svg>
-        </div>
-        <span class="num">03</span>
-        <h3>食事アドバイス</h3>
-        <p>日々の食事についても、無理のない範囲でアドバイス。生活習慣ごと変わります。</p>
-      </div>
-    </div>
-    <p class="solution-closing reveal">鍛えるだけじゃない。<br/>整える、ほぐす、習慣にする。<br/>それがPLFのボディメンテナンスです。</p>
-  </div>
-</section>
-
-<!-- 6. 空間紹介 -->
-<section>
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="eyebrow">our space</span>
-      <h2 class="section-title">清潔で、落ち着いた空間。</h2>
-    </div>
-    <div class="space-gallery reveal">
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto.jpg" alt="店舗内装" loading="lazy"/></div>
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="コーナー" loading="lazy"/></div>
-      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="器具" loading="lazy"/></div>
-    </div>
-    <p class="space-body reveal">
-      男性だらけの24hジムとは、まるで違います。<br/>
-      明るく、清潔で、落ち着いた空間。<br/>
-      <em style="font-style:normal;color:var(--brand-accent)">美容室に行くような感覚</em>で、通えます。
-    </p>
-  </div>
-</section>
-
-<!-- 7. 会員の声 -->
-<section class="section-soft">
+<!-- ===== Section 5: Testimonials ===== -->
+<section class="section-soft" data-screen-label="05 Testimonials">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <span class="eyebrow">member voices</span>
@@ -1181,15 +1102,42 @@
         </div>
       </article>
     </div>
+    <div class="google-rating reveal">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <div class="score"><strong>4.9</strong> <span>/ 5.0</span></div>
+      <div class="lbl">Google 評価スコア（16レビュー）</div>
+    </div>
     <p class="t-note">全て実際のお客様の声です。</p>
   </div>
 </section>
 
-<section class="section-warm">
+<!-- ===== Section 6: Space ===== -->
+<section data-screen-label="06 Space">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow">our space</span>
+      <h2 class="section-title">清潔で、落ち着いた空間。</h2>
+    </div>
+    <div class="space-gallery reveal">
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto.jpg" alt="店舗内装" loading="lazy"/></div>
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s2.jpg" alt="コーナー" loading="lazy"/></div>
+      <div class="cell"><img src="https://motoyawata.plf-personal.com/img/top_faphoto_s4.jpg" alt="器具" loading="lazy"/></div>
+    </div>
+    <p class="space-body reveal">
+      男性だらけの24hジムとは、まるで違います。<br/>
+      明るく、清潔で、落ち着いた空間。<br/>
+      <em style="font-style:normal;color:var(--brand-accent)">美容室に行くような感覚</em>で、通えます。
+    </p>
+  </div>
+</section>
+
+<!-- ===== Section 7: Pricing ===== -->
+<section class="section-warm" data-screen-label="07 Pricing">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <span class="eyebrow">pricing</span>
       <h2 class="section-title">まずは1ヶ月、お試しから。</h2>
+      <p class="section-subtitle">続けられるかどうか、お財布に負担なく試せます。</p>
     </div>
 
     <div class="price-hero reveal">
@@ -1254,7 +1202,8 @@
   </div>
 </section>
 
-<section>
+<!-- ===== Section 8: Flow ===== -->
+<section data-screen-label="08 Flow">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <span class="eyebrow">how it works</span>
@@ -1265,28 +1214,29 @@
         <div class="num">step<span class="big">01</span></div>
         <div>
           <h3>ご予約</h3>
-          <p>LINEまたはお電話で、ご希望の日時をお伝えください。</p>
+          <p>LINEまたはお電話でご予約ください。ご希望の日時をお伝えいただければ、こちらで調整します。</p>
         </div>
       </div>
       <div class="flow-step reveal" style="transition-delay:100ms">
         <div class="num">step<span class="big">02</span></div>
         <div>
           <h3>カウンセリング＋体験</h3>
-          <p>お体の状態をヒアリング後、実際のセッションを体験。</p>
+          <p>お体の状態や目的をヒアリング。実際にセミパーソナルのセッションを体験していただきます。</p>
         </div>
       </div>
       <div class="flow-step reveal" style="transition-delay:200ms">
         <div class="num">step<span class="big">03</span></div>
         <div>
           <h3>お試しチケットでスタート</h3>
-          <p>気に入ったら4回チケットから。無理な勧誘は一切しません。</p>
+          <p>気に入っていただけたら、お試し4回チケットからスタート。無理な勧誘は一切ありません。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section-warm">
+<!-- ===== Section 9: Trainer ===== -->
+<section class="section-warm" data-screen-label="09 Trainer">
   <div class="container">
     <div class="reveal" style="text-align:center;margin-bottom:var(--space-lg)">
       <span class="eyebrow">your trainer</span>
@@ -1299,14 +1249,15 @@
       <div class="reveal" style="transition-delay:120ms">
         <div class="name-en">trainer</div>
         <div class="name">PLF本八幡 トレーナー</div>
-        <p class="bio">※お写真・お名前は本番素材に差し替え</p>
+        <p class="bio">『指導』は『接客』。一方通行ではなくコミュニケーションを大切にしています。<br/>※お写真・お名前は本番素材に差し替え</p>
         <p class="message">「ただ重いものを持つだけがトレーニングではありません。お一人おひとりの体に合わせて、整えることから始めます。」</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ===== Section 10: FAQ ===== -->
+<section data-screen-label="10 FAQ">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <span class="eyebrow">questions</span>
@@ -1365,95 +1316,14 @@
   </div>
 </section>
 
-<section id="cta-final" class="section-dark final-cta">
+<!-- ===== Section 11: Final CTA ===== -->
+<section id="cta-final" class="section-dark final-cta" data-screen-label="11 Final CTA">
   <div class="container">
     <div class="reveal">
       <div class="kicker">— one habit a week —</div>
       <h2>なんとなく体が重い。<br/>その「なんとなく」、<br/>週1の習慣で変わります。</h2>
       <p class="sub">まずはお試し4回チケットから。</p>
-    </div>
-
-    <div class="step-form reveal" id="step-form">
-      <div class="step-progress" id="step-progress">
-        <span class="step-dot active"></span>
-        <span class="step-dot"></span>
-        <span class="step-dot"></span>
-        <span class="step-dot"></span>
-        <span class="step-dot"></span>
-        <span class="step-dot"></span>
-      </div>
-
-      <!-- Step 1: 名前 -->
-      <div class="step active" data-step="0">
-        <div class="step-label">お名前を教えてください</div>
-        <input type="text" id="sf-name" placeholder="山田 花子" autocomplete="name" />
-        <div class="step-nav">
-          <button class="btn btn-primary step-next">次へ <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- Step 2: メール -->
-      <div class="step" data-step="1">
-        <div class="step-label">メールアドレスを<br/>教えてください</div>
-        <input type="email" id="sf-email" placeholder="hanako@example.com" autocomplete="email" />
-        <div class="step-nav">
-          <button class="step-back">← 戻る</button>
-          <button class="btn btn-primary step-next">次へ <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- Step 3: 電話 -->
-      <div class="step" data-step="2">
-        <div class="step-label">電話番号を教えてください</div>
-        <input type="tel" id="sf-tel" placeholder="090-1234-5678" autocomplete="tel" />
-        <div class="step-nav">
-          <button class="step-back">← 戻る</button>
-          <button class="btn btn-primary step-next">次へ <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- Step 4: 生年月日 -->
-      <div class="step" data-step="3">
-        <div class="step-label">生年月日を教えてください</div>
-        <div class="step-birth-row">
-          <select id="sf-year"><option value="">年</option></select>
-          <select id="sf-month"><option value="">月</option></select>
-          <select id="sf-day"><option value="">日</option></select>
-        </div>
-        <div class="step-nav">
-          <button class="step-back">← 戻る</button>
-          <button class="btn btn-primary step-next">次へ <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- Step 5: 希望日 -->
-      <div class="step" data-step="4">
-        <div class="step-label">ご希望の日時はありますか？</div>
-        <input type="text" id="sf-date" placeholder="5/10（土）午前中" />
-        <div class="step-nav">
-          <button class="step-back">← 戻る</button>
-          <button class="btn btn-primary step-next">次へ <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- Step 6: 確認 -->
-      <div class="step" data-step="5">
-        <div class="step-label">この内容でよろしいですか？</div>
-        <div class="step-confirm-list" id="confirm-list"></div>
-        <div class="step-nav">
-          <button class="step-back">← 戻る</button>
-          <button class="btn btn-primary" id="step-submit">申し込む <span class="arrow">→</span></button>
-        </div>
-      </div>
-
-      <!-- 完了 -->
-      <div class="step-done" id="step-done">
-        <div class="check-circle">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>
-        </div>
-        <h3>お申し込みありがとうございます</h3>
-        <p>担当者より折り返しご連絡いたします。<br/>無理な勧誘は一切ありません。</p>
-      </div>
+      <a href="#" class="btn btn-ghost-dark">お試し4回チケットを申し込む <span class="arrow">→</span></a>
     </div>
 
     <div class="access reveal">
@@ -1470,23 +1340,59 @@
 
 <footer class="footer">© 2026 PLF 本八幡 — body maintenance studio</footer>
 
+<!-- ===== Sticky Mobile CTA ===== -->
 <div class="sticky-cta" id="sticky-cta">
   <a href="#cta-final" class="btn btn-primary">お試し4回チケットを見る <span class="arrow">→</span></a>
 </div>
 
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<!-- ===== Tweaks Panel ===== -->
+<div id="tweaks-panel">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Accent color</label>
+    <div class="swatches" id="tw-accent">
+      <button class="sw" data-v="#7D9B8A" style="background:#7D9B8A"></button>
+      <button class="sw" data-v="#A6896F" style="background:#A6896F"></button>
+      <button class="sw" data-v="#8A95A8" style="background:#8A95A8"></button>
+      <button class="sw" data-v="#C0836E" style="background:#C0836E"></button>
+      <button class="sw" data-v="#6B7F6B" style="background:#6B7F6B"></button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Price accent</label>
+    <div class="swatches" id="tw-price">
+      <button class="sw" data-v="#C07A5A" style="background:#C07A5A"></button>
+      <button class="sw" data-v="#B08668" style="background:#B08668"></button>
+      <button class="sw" data-v="#A87B61" style="background:#A87B61"></button>
+      <button class="sw" data-v="#7D9B8A" style="background:#7D9B8A"></button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Hero overlay</label>
+    <select id="tw-hero">
+      <option value="overlay">画像オーバーレイ（現在）</option>
+      <option value="soft">柔らかベージュ（画像なし）</option>
+      <option value="split">スプリット（左画像・右テキスト）</option>
+    </select>
+  </div>
+  <div class="row toggle-row">
+    <label style="margin:0">Sticky CTA (mobile)</label>
+    <input type="checkbox" id="tw-sticky" checked />
+  </div>
+</div>
 
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
+<script>
+  /* ===== Reveal on scroll ===== */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ===== FAQ accordion ===== */
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
       item.classList.toggle('open');
@@ -1495,124 +1401,110 @@
     });
   });
 
+  /* ===== Sticky CTA hide near footer ===== */
   const stickyCTA = document.getElementById('sticky-cta');
   const finalCTA = document.getElementById('cta-final');
-  const stickyIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) stickyCTA.classList.add('hidden');
-      else stickyCTA.classList.remove('hidden');
+  const stickyIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ stickyCTA.classList.add('hidden'); }
+      else { if(TWEAKS.stickyCTA) stickyCTA.classList.remove('hidden'); }
     });
-  }, { threshold: 0.3 });
+  },{threshold:0.3});
   stickyIO.observe(finalCTA);
 
-  // ステップフォーム
-  (function(){
-    const steps = document.querySelectorAll('.step');
-    const dots = document.querySelectorAll('.step-dot');
-    const form = document.getElementById('step-form');
-    let cur = 0;
-
-    // 生年月日セレクト生成
-    const yearSel = document.getElementById('sf-year');
-    const monthSel = document.getElementById('sf-month');
-    const daySel = document.getElementById('sf-day');
-    const thisYear = new Date().getFullYear();
-    for(let y = thisYear - 18; y >= thisYear - 80; y--){
-      const o = document.createElement('option'); o.value = y; o.textContent = y + '年'; yearSel.appendChild(o);
+  /* ===== Apply initial Tweak state ===== */
+  function applyTweak(key, value){
+    TWEAKS[key] = value;
+    const r = document.documentElement;
+    if(key==='accent'){
+      r.style.setProperty('--brand-accent',value);
+      r.style.setProperty('--text-accent',value);
+      // hover: darken slightly
+      const darker = shade(value,-10);
+      r.style.setProperty('--brand-accent-hover',darker);
+      r.style.setProperty('--border-accent',hexToRgba(value,0.3));
     }
-    for(let m = 1; m <= 12; m++){
-      const o = document.createElement('option'); o.value = m; o.textContent = m + '月'; monthSel.appendChild(o);
+    if(key==='priceAccent'){
+      r.style.setProperty('--price-highlight',value);
     }
-    for(let d = 1; d <= 31; d++){
-      const o = document.createElement('option'); o.value = d; o.textContent = d + '日'; daySel.appendChild(o);
+    if(key==='heroVariant'){
+      document.body.dataset.heroVariant = value;
+      applyHeroVariant(value);
     }
-
-    const fields = [
-      {id:'sf-name', label:'お名前', required:true},
-      {id:'sf-email', label:'メールアドレス', required:true},
-      {id:'sf-tel', label:'電話番号', required:true},
-      {id:'sf-year', label:'生年月日', required:true, birth:true},
-      {id:'sf-date', label:'ご希望日時', required:false}
-    ];
-
-    function getValue(i){
-      if(i === 3){
-        const y = yearSel.value, m = monthSel.value, d = daySel.value;
-        if(!y || !m || !d) return '';
-        return y + '年' + m + '月' + d + '日';
-      }
-      return document.getElementById(fields[i].id).value.trim();
+    if(key==='stickyCTA'){
+      stickyCTA.style.display = value ? '' : 'none';
     }
+  }
+  function shade(hex,amt){
+    const n = parseInt(hex.slice(1),16);
+    let r=(n>>16)+amt, g=((n>>8)&0xff)+amt, b=(n&0xff)+amt;
+    r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));
+    return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');
+  }
+  function hexToRgba(hex,a){
+    const n = parseInt(hex.slice(1),16);
+    return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+  }
+  function applyHeroVariant(v){
+    const hero = document.querySelector('.hero');
+    const bg = hero.querySelector('.bg');
+    const heroImg = 'https://motoyawata.plf-personal.com/img/top_faphoto.jpg';
+    const splitImg = 'https://motoyawata.plf-personal.com/img/toppageimg_04.jpg';
+    if(v==='soft'){
+      bg.style.background='linear-gradient(180deg, var(--surface-soft) 0%, var(--surface-warm) 100%)';
+    } else if(v==='split'){
+      bg.style.background = `linear-gradient(90deg, var(--surface-warm) 0% 45%, transparent 45%), url('${splitImg}') right center / 60% 100% no-repeat`;
+    } else {
+      bg.style.background = `url('${heroImg}') center / cover no-repeat`;
+    }
+  }
+  // init
+  Object.entries(TWEAKS).forEach(([k,v])=>applyTweak(k,v));
 
-    function goTo(n){
-      steps[cur].classList.remove('active');
-      cur = n;
-      steps[cur].classList.remove('active');
-      void steps[cur].offsetWidth;
-      steps[cur].classList.add('active');
-      dots.forEach((d,i) => {
-        d.className = 'step-dot' + (i < cur ? ' done' : i === cur ? ' active' : '');
+  /* ===== Tweaks mode integration ===== */
+  const panel = document.getElementById('tweaks-panel');
+
+  function wireSwatchGroup(id,key){
+    const group = document.getElementById(id);
+    group.querySelectorAll('.sw').forEach(b=>{
+      if(b.dataset.v===TWEAKS[key]) b.classList.add('active');
+      b.addEventListener('click',()=>{
+        group.querySelectorAll('.sw').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        const v = b.dataset.v;
+        applyTweak(key,v);
+        postEdit({[key]:v});
       });
-      // 確認画面の内容を生成
-      if(cur === 5){
-        const list = document.getElementById('confirm-list');
-        list.innerHTML = '';
-        fields.forEach((f,i) => {
-          const v = getValue(i);
-          if(v){
-            const row = document.createElement('div');
-            row.className = 'step-confirm-item';
-            row.innerHTML = '<span class="cl">' + f.label + '</span><span class="cv">' + v + '</span>';
-            list.appendChild(row);
-          }
-        });
-      }
-      // inputにフォーカス
-      const input = steps[cur].querySelector('input');
-      if(input) setTimeout(() => input.focus(), 320);
-    }
-
-    // 次へ
-    form.addEventListener('click', function(e){
-      const nextBtn = e.target.closest('.step-next');
-      if(nextBtn){
-        // バリデーション
-        const f = fields[cur];
-        if(f && f.required){
-          const v = getValue(cur);
-          if(!v){
-            const input = steps[cur].querySelector('input, select');
-            if(input){input.style.borderColor = 'var(--price-highlight)'; setTimeout(() => input.style.borderColor = '', 1200);}
-            return;
-          }
-        }
-        if(cur < steps.length - 1) goTo(cur + 1);
-      }
     });
+  }
+  wireSwatchGroup('tw-accent','accent');
+  wireSwatchGroup('tw-price','priceAccent');
 
-    // 戻る
-    form.addEventListener('click', function(e){
-      if(e.target.closest('.step-back')){
-        if(cur > 0) goTo(cur - 1);
-      }
-    });
+  const heroSel = document.getElementById('tw-hero');
+  heroSel.value = TWEAKS.heroVariant;
+  heroSel.addEventListener('change',()=>{
+    applyTweak('heroVariant',heroSel.value);
+    postEdit({heroVariant:heroSel.value});
+  });
 
-    // Enterキーで次へ
-    form.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' && cur < steps.length - 1){
-        e.preventDefault();
-        const nextBtn = steps[cur].querySelector('.step-next');
-        if(nextBtn) nextBtn.click();
-      }
-    });
+  const stickyChk = document.getElementById('tw-sticky');
+  stickyChk.checked = TWEAKS.stickyCTA;
+  stickyChk.addEventListener('change',()=>{
+    applyTweak('stickyCTA',stickyChk.checked);
+    postEdit({stickyCTA:stickyChk.checked});
+  });
 
-    // 送信（WordPress移行時にここを差し替え）
-    document.getElementById('step-submit').addEventListener('click', function(){
-      steps[cur].classList.remove('active');
-      document.getElementById('step-progress').style.display = 'none';
-      document.getElementById('step-done').classList.add('active');
-    });
-  })();
+  function postEdit(edits){
+    try{ window.parent.postMessage({type:'__edit_mode_set_keys',edits},'*'); }catch(e){}
+  }
+
+  window.addEventListener('message',(e)=>{
+    const d = e.data || {};
+    if(d.type==='__activate_edit_mode'){ panel.classList.add('on'); }
+    if(d.type==='__deactivate_edit_mode'){ panel.classList.remove('on'); }
+  });
+  // announce availability
+  try{ window.parent.postMessage({type:'__edit_mode_available'},'*'); }catch(e){}
 </script>
 
 </body>

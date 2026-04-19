@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(tar -xzvf \"C:/Users/明石和樹/.claude/projects/C--Users------PLF-LP/b74e5eed-1935-4e67-8766-ad838cd4bcc7/tool-results/webfetch-1776577291301-ddeyk9.bin\" -C \"C:/Users/明石和樹/PLF_LP/_design_extract/\")",
+      "WebFetch(domain:motoyawata.plf-personal.com)"
+    ]
+  }
+}
